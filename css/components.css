@@ -1,0 +1,56 @@
+:root {
+	--card-action-bg: #173c33;
+	--card-action-text: #ffffff;
+	--card-action-hover: #a9d936;
+	--card-action-focus: #ec765e;
+}
+
+.card-action {
+	display: inline-flex;
+	min-height: 44px;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 10px 16px;
+	color: var(--card-action-text);
+	background: var(--card-action-bg);
+	border: 2px solid transparent;
+	border-radius: 4px;
+	font: inherit;
+	font-weight: 700;
+	text-decoration: none;
+	transition: background-color 180ms ease, color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.card-action::after {
+	content: "\2197";
+	transition: transform 180ms ease;
+}
+
+.card-action:hover {
+	color: var(--card-action-bg);
+	background: var(--card-action-hover);
+	box-shadow: 0 5px 0 rgba(23, 60, 51, 0.16);
+	transform: translateY(-2px);
+}
+
+.card-action:hover::after {
+	transform: translate(2px, -2px);
+}
+
+.card-action:focus-visible {
+	outline: 3px solid var(--card-action-focus);
+	outline-offset: 3px;
+}
+
+.card-action:active {
+	box-shadow: none;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.card-action,
+	.card-action::after {
+		transition-duration: 0.01ms;
+	}
+}
