@@ -1,0 +1,204 @@
+:root {
+    color-scheme: dark;
+    --page: #101827;
+    --surface: #182538;
+    --surface-raised: #1e3046;
+    --text: #edf4f6;
+    --muted: #a7bac5;
+    --accent: #59dbc2;
+    --accent-soft: rgba(89, 219, 194, 0.12);
+    --border: rgba(183, 211, 218, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 48px 20px;
+    background:
+        radial-gradient(ellipse at 12% 8%, rgba(89, 219, 194, 0.13), transparent 34rem),
+        radial-gradient(ellipse at 94% 88%, rgba(66, 112, 171, 0.16), transparent 32rem),
+        var(--page);
+    color: var(--text);
+    font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    line-height: 1.6;
+}
+
+.profile-card {
+    width: min(100%, 820px);
+    margin: 0 auto;
+    padding: clamp(24px, 5vw, 52px);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    background: linear-gradient(145deg, rgba(30, 48, 70, 0.97), rgba(21, 34, 51, 0.98));
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.3);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 4vw, 36px);
+}
+
+.profile-avatar {
+    flex: 0 0 auto;
+    width: clamp(104px, 20vw, 156px);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 8px var(--accent-soft), 0 12px 30px rgba(0, 0, 0, 0.24);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.profile-avatar:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 0 0 11px var(--accent-soft), 0 16px 34px rgba(0, 0, 0, 0.3);
+}
+
+.profile-intro {
+    min-width: 0;
+}
+
+.eyebrow {
+    margin: 0 0 6px;
+    color: var(--accent);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.045em;
+    line-height: 1.1;
+}
+
+.profile-role {
+    display: inline-block;
+    margin: 0;
+    padding: 6px 12px;
+    border: 1px solid rgba(89, 219, 194, 0.25);
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: #a5f2e2;
+    font-size: 0.9rem;
+}
+
+.profile-bio {
+    max-width: 66ch;
+    margin: 34px 0;
+    color: var(--muted);
+    font-size: 1.04rem;
+}
+
+.profile-sections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.profile-section {
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(9, 19, 31, 0.28);
+    transition: transform 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+
+.profile-section:hover {
+    transform: translateY(-3px);
+    border-color: rgba(89, 219, 194, 0.35);
+    background: rgba(9, 19, 31, 0.48);
+}
+
+.profile-section h2 {
+    margin-bottom: 16px;
+    color: var(--text);
+    font-size: 1.05rem;
+    letter-spacing: 0.01em;
+}
+
+.tag-list,
+.link-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tag-list li,
+.link-list a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 6px 11px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface-raised);
+    color: var(--muted);
+    font-size: 0.88rem;
+    transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.link-list a {
+    gap: 8px;
+    color: var(--accent);
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.tag-list li:hover,
+.link-list a:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: var(--text);
+}
+
+.link-list a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+@media (max-width: 560px) {
+    body {
+        padding: 24px 14px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-bio {
+        margin: 26px 0;
+    }
+
+    .profile-sections {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
