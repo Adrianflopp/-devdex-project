@@ -1,3 +1,11 @@
+.btn-custom-effect {
+    /* estado normal: lo que quieras que tenga el botón */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-custom-effect:hover {
+    /* qué cambia al pasar el ratón: por ejemplo, subir un poco y una sombra */
+}
 .u-button-hover {
     display: inline-flex;
     align-items: center;
