@@ -6,3 +6,33 @@
 .btn-custom-effect:hover {
     /* qué cambia al pasar el ratón: por ejemplo, subir un poco y una sombra */
 }
+.u-button-hover {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.1rem;
+    border: 1px solid rgba(89, 219, 194, 0.45);
+    border-radius: 0.75rem;
+    background: #182538;
+    color: #a5f2e2;
+    font-weight: 650;
+    text-decoration: none;
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.u-button-hover:hover {
+    transform: translateY(-3px);
+    background: #234153;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22), 0 0 0 3px rgba(89, 219, 194, 0.12);
+}
+
+.u-button-hover:focus-visible {
+    outline: 2px solid #59dbc2;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .u-button-hover {
+        transition: none;
+    }
+}
